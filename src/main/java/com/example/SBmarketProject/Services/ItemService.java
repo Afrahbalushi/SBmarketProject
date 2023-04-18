@@ -15,4 +15,7 @@ public class ItemService {
     public List<Item> getAllItems() {
         return itemRepository.findAll();
     }
+    public Item getItemById(Integer id) {
+        return itemRepository.findById(id).get();
+    }
 }

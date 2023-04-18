@@ -3,9 +3,7 @@ package com.example.SBmarketProject.Controller;
 import com.example.SBmarketProject.Models.Invoice;
 import com.example.SBmarketProject.Services.InvoiceService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -18,5 +16,9 @@ public class InvoiceController {
     @RequestMapping(value = "getAll", method = RequestMethod.GET)
     public List<Invoice> findInvoices() {
         return invoiceService.getAllInvoices();
+    }
+    @GetMapping(value = "getById")
+    public Invoice getInvoiceById(@RequestParam Integer id) {
+        return invoiceService.getInvoiceById(id);
     }
 }
